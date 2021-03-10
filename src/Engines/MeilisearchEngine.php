@@ -179,7 +179,7 @@ class MeilisearchEngine extends Engine
             return $model->newCollection();
         }
 
-        $objectIds = collect($results['hits'])->pluck($model->getKeyName())->values()->all();
+        $objectIds = collect($results['hits'])->pluck($model->getScoutKeyName())->values()->all();
         $objectIdPositions = array_flip($objectIds);
 
         return $model->getScoutModelsByIds(
